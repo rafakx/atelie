@@ -1,0 +1,24 @@
+<h1>Administradores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Usuário</th>
+      <th>Email</th>
+      <th>Criação</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @administrators.each do |administrator| %>
+      <tr>
+        <td><%= administrator.fullname %></td>
+        <td><%= administrator.username %></td>
+        <td><%= administrator.email %></td>        
+        <td><%= time_ago_in_words(administrator.created_at) %></td>
+        <td><%= link_to "Editar", edit_admin_administrator_path(administrator) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
