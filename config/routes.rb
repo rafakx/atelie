@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
 
+  root to: 'products#index'
+
+
   get '/login' => 'admin/sessions#new'
   get '/logout' => 'admin/sessions#destroy'
 
   namespace :admin do
-
+    resources :dashboard, only: [:index]
+    resources :settings, only: [:new, :create, :edit, :update]
+    resources :categories, except: [:index]
+    resources :products
     resources :sessions, only: [:new, :create, :destroy]
     resources :administrators, only: [:index, :edit, :update]
   end
+
+
+  resources :products, only: [:index, :show]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

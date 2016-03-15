@@ -1,0 +1,22 @@
+<%= render 'validation_errors', object: @product %>
+
+<%= form_for [:admin, @product] do |f| %>
+  <p>
+    <%= f.label :name %> 
+    <%= f.text_field :name %> 
+  </p>  
+  <p>
+    <%= f.label :description %> <br />
+    <%= f.text_area :description %> 
+  </p>
+  <p>
+    <%= f.label :publish %> 
+    <%= f.check_box :publish %> 
+  </p>
+  <p>
+    <%= f.select :category_ids, Category.all.collect {|c| [c.name, c.id]}, {prompt: 'Selecione as categorias'}, multiple: :true %> 
+  </p>
+  <p>
+  <%= f.submit 'enviar' %>
+  </p>
+<% end %>

@@ -1,0 +1,33 @@
+<h1>Produtos</h1>
+
+<%= link_to 'Novo Produto', new_admin_product_path %>
+
+<p>
+  <%= form_tag(admin_products_path, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Público</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= status_converter(product.publish, truthy: "Ativo", falsey: "Inativo") %></td>
+      <td><%= link_to 'Editar', edit_admin_product_path(product) %></td>
+      <td><%= link_to 'Show', admin_product_path(product) %></td>
+      <td><%= link_to 'Delete', admin_product_path(product), method: :delete, data: {confirm: "ok?"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p> <%= paginate @products %> </p>

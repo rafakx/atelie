@@ -12,7 +12,7 @@ class Admin::AdministratorsController < Admin::ApplicationController
 
     if @administrator.update(administrator_params)
       flash[:notice] = "administrator was successfully update"
-      redirect_to admin_administrators_url
+      redirect_to admin_administrators_path
     else
       flash[:alert] = "There was a problem updating administrator"
       render 'edit'

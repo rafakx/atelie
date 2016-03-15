@@ -1,6 +1,8 @@
 
 <h1> Editar Administrador </h1>
 
+<%= render 'validation_errors', object: @administrator %>
+
 <%= form_for [:admin, @administrator] do |f| %>
 
   <p>

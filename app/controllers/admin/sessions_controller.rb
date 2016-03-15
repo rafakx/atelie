@@ -6,9 +6,10 @@ class Admin::SessionsController < Admin::ApplicationController
 
   def create
     @administrator = Administrator.find_by(username: params[:username]).try(:authenticate, params[:password])
+    
     if @administrator
       session[:current_administrator_id] = @administrator.id
-      redirect_to admin_administrators_url, notice: 'You have successfully signed in'
+      redirect_to admin_administrators_path, notice: 'You have successfully signed in'
     else
       flash[:alert] = "fail"
       render :new

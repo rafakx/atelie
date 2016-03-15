@@ -13,5 +13,32 @@ administrator = Administrator.create(
   username: "ilda",
   email: "ildabet@hotmail.com",
   password: "12345"
-
 )
+
+30.times do
+  product = Product.create(
+    name: Faker::Lorem.word,
+    description: Faker::Lorem.paragraph,
+    publish: true,
+    administrator: administrator
+  )
+
+  category = Category.create(
+    name: Faker::Lorem.word
+  )
+
+  product_category = ProductCategory.create(
+    product: product,
+    category: category
+  )
+
+  detail = Detail.create(
+    name: Faker::Lorem.word,
+    metrics: Faker::Lorem.word
+  )
+
+  product_detail = ProductDetail.create(
+    product: product,
+    detail: detail
+  )
+end

@@ -1,0 +1,10 @@
+<h1>Admin::Categories#destroy</h1>
+<%= render 'validation_errors', object: @category %>
+
+
+<%= form_for [:admin, @category] do |f| %>
+  <p> <%= f.label :name %> </p>
+  <p> <%= f.text_field :name %> </p>
+  <p> <%= f.submit %>
+
+<% end %>

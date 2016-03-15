@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+
+<p>Products</p>
+<%= link_to 'Novo produto', new_admin_product_path %>
+<%= link_to 'Todos Produtos', admin_products_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>name</td>
+      <td>name</td>
+    </tr>
+  </thead>  
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td>name</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

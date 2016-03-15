@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160308060024) do
   add_index "product_details", ["product_id"], name: "index_product_details_on_product_id"
 
   create_table "products", force: :cascade do |t|
-    t.integer  "name"
-    t.integer  "description"
+    t.string   "name"
+    t.text     "description"
     t.integer  "administrator_id"
     t.boolean  "publish"
     t.datetime "created_at",       null: false

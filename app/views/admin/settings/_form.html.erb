@@ -1,0 +1,12 @@
+<%= form_for [:admin, @setting] do |f| %>
+  <p><%= f.label :site_name %>  
+  <%= f.text_field :site_name %></p>
+
+  <p><%= f.label :product_per_page %>  
+  <%= f.number_field :product_per_page %></p>
+
+  <p><%= f.label :under_maintenance %> 
+  <%= f.check_box :under_maintenance %></p>
+
+  <p><%= f.submit "enviar" %></p>
+<% end %>
