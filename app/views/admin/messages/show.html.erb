@@ -1,0 +1,6 @@
+<h1>Admin::Messages#show</h1>
+
+<p>Nome: <%= @message.visitor.completename %></p>
+<p>Enviado em: <%= time_ago_in_words(@message.created_at) %></p>
+<p>Mensagem: </p>
+<p><%= @message.content %></p>

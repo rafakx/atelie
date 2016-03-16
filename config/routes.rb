@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-
-  root to: 'products#index'
-
+  
+  root to: 'dashboard#index'
 
   get '/login' => 'admin/sessions#new'
   get '/logout' => 'admin/sessions#destroy'
 
   namespace :admin do
     resources :dashboard, only: [:index]
+    resources :messages, only: [:index, :show]
     resources :settings, only: [:new, :create, :edit, :update]
     resources :categories, except: [:index]
     resources :products

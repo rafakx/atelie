@@ -1,0 +1,26 @@
+<h1>Admin::Messages#index</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Message</th>
+      <th>Data</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.visitor.firstname %></td>
+        <td><%= message.content.first(20) %>...</td>
+        <td><%= time_ago_in_words(message.created_at) %></td>
+        <td><%= link_to 'Show', admin_message_path(message) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p> <%= paginate @messages %> </p>

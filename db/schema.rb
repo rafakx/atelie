@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308060024) do
+ActiveRecord::Schema.define(version: 20160315232318) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "firstname"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20160308060024) do
   end
 
   add_index "images", ["product_id"], name: "index_images_on_product_id"
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "visitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "messages", ["visitor_id"], name: "index_messages_on_visitor_id"
 
   create_table "product_categories", force: :cascade do |t|
     t.integer  "product_id"
@@ -84,6 +93,14 @@ ActiveRecord::Schema.define(version: 20160308060024) do
     t.boolean  "under_maintenance"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "visitors", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

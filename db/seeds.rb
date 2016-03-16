@@ -41,4 +41,15 @@ administrator = Administrator.create(
     product: product,
     detail: detail
   )
+
+  visitor = Visitor.create(
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    email: Faker::Internet.safe_email
+  )
+
+  message = Message.create(
+    content: Faker::Lorem.paragraph,  
+    visitor: visitor
+  )
 end

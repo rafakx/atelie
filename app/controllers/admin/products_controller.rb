@@ -14,7 +14,6 @@ class Admin::ProductsController < Admin::ApplicationController
   def create
     @product = Product.new(product_params)
     @product.administrator_id = current_administrator.id
-    
 
     if @product.save
       redirect_to admin_products_path, notice: "Produto criado com sucesso!"
