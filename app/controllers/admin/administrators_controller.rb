@@ -4,6 +4,7 @@ class Admin::AdministratorsController < Admin::ApplicationController
   end
 
   def edit
+    @administrators = Administrator.all
     @administrator = Administrator.find(params[:id])
   end
 

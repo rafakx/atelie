@@ -6,7 +6,7 @@ class Admin::ApplicationController < ActionController::Base
   before_action :authorize
 
   def current_administrator
-    @moderator ||= Administrator.find(session[:current_administrator_id]) if session[:current_administrator_id]
+    @administrator ||= Administrator.find(session[:current_administrator_id]) if session[:current_administrator_id]
   end
 
   def authorize

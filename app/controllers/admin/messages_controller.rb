@@ -1,6 +1,6 @@
 class Admin::MessagesController < Admin::ApplicationController
   def index
-    @messages = Message.order(id: :desc).page(params[:page]).per(15)
+    @messages = Message.all
   end
 
   def show

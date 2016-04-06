@@ -1,12 +1,20 @@
 <%= form_for [:admin, @setting] do |f| %>
-  <p><%= f.label :site_name %>  
-  <%= f.text_field :site_name %></p>
+       
+  <div class="form-group">
+    <label>Título do Site</label><br />
+    <%= f.text_field :site_name, class: "form-control", placeholder: "Título que será apresentado" %>
+  </div>
+                
+  <div class="form-group">
+    <label>Produtos por página</label><br />
+    <%= f.number_field :product_per_page, class: "form-control", placeholder: "10"  %>
+  </div>
+  <div class="form-group">
+    <label>Em manutenção</label> <br />
+    <%= f.check_box :under_maintenance %>
+  </div>
 
-  <p><%= f.label :product_per_page %>  
-  <%= f.number_field :product_per_page %></p>
-
-  <p><%= f.label :under_maintenance %> 
-  <%= f.check_box :under_maintenance %></p>
-
-  <p><%= f.submit "enviar" %></p>
+  <p>
+    <%= f.submit "Salvar", class: "btn btn-primary pull-right" %>
+  </p>
 <% end %>

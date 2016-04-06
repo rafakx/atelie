@@ -1,10 +1,11 @@
 class Admin::ProductsController < Admin::ApplicationController
   def index
-    if params[:search].present?
-      @products = Product.matching_name_or_description(params[:search]).page params[:page]
-    else
-      @products = Product.all.order(id: :desc).page params[:page]
-    end
+    # if params[:search].present?
+    #   @products = Product.matching_name_or_description(params[:search]).page params[:page]
+    # else
+    #   @products = Product.all.order(id: :desc).page params[:page]
+    # end
+    @products = Product.all
   end
 
   def new

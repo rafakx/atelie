@@ -1,24 +1,61 @@
-<h1>Administradores</h1>
+<div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Usuário</th>
-      <th>Email</th>
-      <th>Criação</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @administrators.each do |administrator| %>
-      <tr>
-        <td><%= administrator.fullname %></td>
-        <td><%= administrator.username %></td>
-        <td><%= administrator.email %></td>        
-        <td><%= time_ago_in_words(administrator.created_at) %></td>
-        <td><%= link_to "Editar", edit_admin_administrator_path(administrator) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Administrador Atual
+      </div>
+      <div class="panel-body">
+      <p><strong>Nome: </strong> <%= @administrator.fullname %></p>
+      <p><strong>E-mail: </strong> <%= @administrator.email %></p>
+      <p><strong>Login: </strong> <%= @administrator.username %></p>
+        <%= link_to edit_admin_administrator_path(@administrator) do %>
+          <button class="btn btn-primary pull-right" type="button" name="toggle" title="Toggle">
+            Editar
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Administradores Cadastrados</div>
+      <div class="panel-body">
+        <table data-toggle="table"  data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+          <thead>
+            <tr>
+                <th data-field="name"  data-sortable="true">Nome</th>
+                <th data-field="username"  data-sortable="true">Nome de Usuário</th>
+                <th data-field="created" data-sortable="true">Criação</th>
+                <th data-field="use" data-sortable="true">Em uso</th>
+                <th data-field="actions" data-sortable="true">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @administrators.each do |administrator| %>
+              <tr>
+                <td><%= administrator.fullname %></td>
+                <td><%= administrator.username %></td>
+                <td><%= administrator.email %></td>        
+                <td><%= time_ago_in_words(administrator.created_at) %></td>
+                <td>
+                  <%= link_to edit_admin_administrator_path(administrator) do %>
+                    <button class="btn btn-primary" type="button" name="toggle" title="Toggle">
+                      Editar
+                    </button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+

@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  
+
   has_many :images, dependent: :destroy
   has_many :details, through: :product_details
   has_many :product_categories, dependent: :destroy

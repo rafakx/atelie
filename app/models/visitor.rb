@@ -1,7 +1,7 @@
 class Visitor < ActiveRecord::Base
   belongs_to :message
 
-  def completename
+  def fullname
     "#{firstname} #{lastname}"
   end
 

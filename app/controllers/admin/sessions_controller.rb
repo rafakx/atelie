@@ -2,6 +2,7 @@ class Admin::SessionsController < Admin::ApplicationController
   before_action :authorize, except: [:new, :create]
 
   def new
+    render :layout => "login"
     redirect_to admin_dashboard_index_path if current_administrator
   end
 
@@ -10,15 +11,15 @@ class Admin::SessionsController < Admin::ApplicationController
     
     if @administrator
       session[:current_administrator_id] = @administrator.id
-      redirect_to admin_administrators_path, notice: 'You have successfully signed in'
+      redirect_to admin_dashboard_index_path, notice: 'Você entrou com sucesso'
     else
-      flash[:alert] = "fail"
-      render :new
+      flash[:alert] = 'Login incorreto'
+      redirect_to '/login'
     end
   end
 
   def destroy
     session[:current_administrator_id] = nil
-    redirect_to '/login', notice: 'You have successfully logged out'
+    redirect_to '/login', notice: 'Você saiu com sucesso'
   end
 end

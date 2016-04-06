@@ -1,22 +1,115 @@
-<h1>Dashboard</h1>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="panel panel-blue panel-widget ">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="large"><%= @products.count %></div>
+          <div class="text-muted">Produtos Cadastrados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="panel panel-orange panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="large"><%= @messages.count %></div>
+          <div class="text-muted">Contatos Recebidos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="panel panel-teal panel-widget">
+      <div class="row no-padding">
+        <div class="col-sm-3 col-lg-5 widget-left">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </div>
+        <div class="col-sm-9 col-lg-7 widget-right">
+          <div class="large"><%= @visitors.count %></div>
+          <div class="text-muted">Visitantes Cadastrados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--/.row-->
 
-<p>Products</p>
-<%= link_to 'Novo produto', new_admin_product_path %>
-<%= link_to 'Todos Produtos', admin_products_path %>
 
-<table>
-  <thead>
-    <tr>
-      <td>name</td>
-      <td>name</td>
-    </tr>
-  </thead>  
-  <tbody>
-    <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td>name</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-shopping-cart panel-heading-icon" aria-hidden="true"></span>
+        Ultimos Produtos
+      </div>
+      <div class="panel-body">
+      <table data-toggle="table">
+        <tbody>
+          <% @products.last(5).each do |product| %>
+            <tr>
+              <td><strong><%= product.name %></strong></td>
+              <td>Adicionado à <%= time_ago_in_words(product.created_at) %> 
+                <div class="columns btn-group pull-right">
+                  <%= link_to edit_admin_product_path(product) do %>
+                    <button class="btn btn-default" type="button" name="toggle" title="Toggle">
+                      Editar
+                    </button>
+                  <% end %>
+                  <%= link_to admin_product_path(product) do %>
+                    <button class="btn btn-default " type="button" name="toggle" title="Toggle">
+                      Ver
+                    </button>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      <div class="panel-footer">
+        <%= link_to new_admin_product_path do %>
+          <button type="button" class="btn btn-primary">Novo</button>
+        <% end %>
+        <%= link_to admin_products_path do %>
+          <button type="button" class="btn btn-default">Ver Todos</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-primary chat">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-envelope panel-heading-icon" aria-hidden="true"></span>Ultimas Mensagens</div>
+    
+      <div class="panel-body">
+        <ul>
+          <% @messages.last(5).each do |message| %>
+          <li class="left clearfix" style="margin-left:-25px;">
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font"><%= message.visitor.firstname %></strong> <small class="text-muted"><%= time_ago_in_words(message.created_at) %></small>
+              </div>
+              <p>
+                <%= message.content %>
+              </p>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>                <!-- Form actions -->
+      <div class="panel-footer col-md-12 widget-right contact-right">
+        <%= link_to admin_products_path do %>
+          <button type="button" class="btn btn-default btn-md pull-right">Ver Todos</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

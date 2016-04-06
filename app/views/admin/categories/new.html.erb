@@ -1,34 +1,51 @@
-<h1>Admin::Categories#new</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Adicionar Categorias
+      </div>
+      <div class="panel-body">
+        <%= form_for [:admin, @category] do |f| %>
+        <p><%= f.text_area :name, placeholder: 'Decorativo, Mesa', rows: '5', class: 'form-control' %> </p>
+        <%= f.submit "Salvar", class: 'btn btn-primary btn-md pull-right' %>
 
-<%= form_for [:admin, @category] do |f| %>
-  <p><%= f.text_area :name, placeholder: 'Decorativo, Mesa' %> </p>
-  <p><%= f.submit %></p>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Created</th>
-      <th>Em uso</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.name %></td>
-      <td><%= time_ago_in_words(category.created_at) %></td>
-      <td><%= status_converter(category.in_use?, truthy: "Sim", falsey: "Não") %></td>
-      <td>
-        <%= link_to edit_admin_category_path(category) do %>
-          <button type="button">Editar</button>
         <% end %>
-      </td>
-      <td>
-        <%= create_deletable_button category %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Categorias Cadastradas</div>
+      <div class="panel-body">
+        <table data-toggle="table" data-show-toggle="true" data-show-columns="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+            <thead>
+              <tr>
+                  <th data-field="name"  data-sortable="true">Nome</th>
+                  <th data-field="created" data-sortable="true">Criação</th>
+                  <th data-field="use" data-sortable="true">Em uso</th>
+                  <th data-field="actions" data-sortable="true">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @categories.each do |category| %>
+                <tr>
+                  <td><strong><%= category.name %></strong></td>
+                  <td><%= time_ago_in_words(category.created_at) %></td>
+                  <td><%= status_converter(category.in_use?, truthy: "Sim", falsey: "Não") %></td>
+                  <td>
+                    <%= link_to edit_admin_category_path(category) do %>
+                      <button class="btn btn-primary" type="button" name="toggle" title="Toggle">
+                        Editar
+                      </button>
+                    <% end %>
+                    <%= create_deletable_button category %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

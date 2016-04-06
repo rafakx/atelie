@@ -1,6 +1,17 @@
-<h1>Admin::Messages#show</h1>
-
-<p>Nome: <%= @message.visitor.completename %></p>
-<p>Enviado em: <%= time_ago_in_words(@message.created_at) %></p>
-<p>Mensagem: </p>
-<p><%= @message.content %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Contato Recebido
+      </div>
+      <div class="panel-body">
+        <p><strong>Nome: </strong> <%= @message.visitor.fullname %></p>
+        <p><strong>Enviado: </strong>  <%= time_ago_in_words(@message.created_at) %></p>
+        <p><%= @message.content %></p>
+        <%= link_to :back do %>
+          <button type="button" class="btn btn-primary btn-md pull-right">Voltar</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

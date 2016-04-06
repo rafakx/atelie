@@ -1,10 +1,54 @@
-<h1>Admin::Categories#destroy</h1>
 <%= render 'validation_errors', object: @category %>
 
 
-<%= form_for [:admin, @category] do |f| %>
-  <p> <%= f.label :name %> </p>
-  <p> <%= f.text_field :name %> </p>
-  <p> <%= f.submit %>
-
-<% end %>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Editar Categoria</div>
+      <div class="panel-body">
+        <%= form_for [:admin, @category] do |f| %>
+        
+          <div class="form-group">
+            <label><%= f.label 'Nome' %></label>
+            <%= f.text_field :name, class: 'form-control' %> 
+          </div>
+          <%= f.submit "Salvar", class: 'btn btn-primary btn-md pull-right' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Categorias Cadastradas</div>
+      <div class="panel-body">
+        <table data-toggle="table" data-show-toggle="true" data-show-columns="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+            <thead>
+              <tr>
+                  <th data-field="name"  data-sortable="true">Nome</th>
+                  <th data-field="created" data-sortable="true">Criação</th>
+                  <th data-field="use" data-sortable="true">Em uso</th>
+                  <th data-field="actions" data-sortable="true">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @categories.each do |category| %>
+                <tr>
+                  <td><strong><%= category.name %></strong></td>
+                  <td><%= time_ago_in_words(category.created_at) %></td>
+                  <td><%= status_converter(category.in_use?, truthy: "Sim", falsey: "Não") %></td>
+                  <td>
+                    <%= link_to edit_admin_category_path(category) do %>
+                      <button class="btn btn-primary" type="button" name="toggle" title="Toggle">
+                        Editar
+                      </button>
+                    <% end %>
+                    <%= create_deletable_button category %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div><!-- /.col-->

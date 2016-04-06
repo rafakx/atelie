@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
@@ -28,6 +27,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # paginator
 gem 'kaminari', '~> 0.16.3'
+
+# image upload
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

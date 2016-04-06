@@ -12,6 +12,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @category = Category.find(params[:id])
   end
 

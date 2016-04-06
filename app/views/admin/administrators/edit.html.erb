@@ -1,32 +1,50 @@
+<div class="row">
+  
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Editar Administrador
+      </div>
+      <div class="panel-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
 
-<h1> Editar Administrador </h1>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Administradores Cadastrados</div>
+      <div class="panel-body">
+        <table data-toggle="table"  data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+          <thead>
+            <tr>
+                <th data-field="name"  data-sortable="true">Nome</th>
+                <th data-field="username"  data-sortable="true">Nome de Usuário</th>
+                <th data-field="created" data-sortable="true">Criação</th>
+                <th data-field="use" data-sortable="true">Em uso</th>
+                <th data-field="actions" data-sortable="true">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @administrators.each do |administrator| %>
+              <tr>
+                <td><%= administrator.fullname %></td>
+                <td><%= administrator.username %></td>
+                <td><%= administrator.email %></td>        
+                <td><%= time_ago_in_words(administrator.created_at) %></td>
+                <td>
+                  <%= link_to edit_admin_administrator_path(administrator) do %>
+                    <button class="btn btn-primary" type="button" name="toggle" title="Toggle">
+                      Editar
+                    </button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-<%= render 'validation_errors', object: @administrator %>
-
-<%= form_for [:admin, @administrator] do |f| %>
-
-  <p>
-    <%= f.label :firstname, "Primeiro Nome" %>
-    <%= f.text_field :firstname %>
-  </p>
-  <p>
-    <%= f.label :lastname, "Ultimo Nome" %>
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :username, "Nome de usuário" %>
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email, "Email" %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password, "Senha" %>
-    <%= f.password_field :password %>
-  </p>
-
-  <p>
-    <%= f.submit "Enviar" %>
-  </p>
-<% end %>
+  </div>
