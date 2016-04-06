@@ -34,12 +34,24 @@ administrator = Administrator.create(
 
   detail = Detail.create(
     name: Faker::Lorem.word,
-    metrics: Faker::Lorem.word
+    metrics: Faker::Number.number(10)
   )
 
   product_detail = ProductDetail.create(
     product: product,
     detail: detail
+  )
+
+  picture = Picture.create(
+    product: product,
+    main:true,
+    image: File.open(Dir.glob(File.join(Rails.root, 'fixtures', 'products', '*')).sample)
+  )
+
+  picture2 = Picture.create(
+    product: product,
+    main:false,
+    image: File.open(Dir.glob(File.join(Rails.root, 'fixtures', 'products', '*')).sample)
   )
 
   visitor = Visitor.create(

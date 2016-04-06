@@ -17,6 +17,13 @@ class Admin::ProductsController < Admin::ApplicationController
     @product.administrator_id = current_administrator.id
 
     if @product.save
+      
+      if params[:images]
+        params[:images].each do |picture|
+          @product.pictures.create(image: picture, main:true)
+        end
+      end
+
       redirect_to admin_products_path, notice: "Produto criado com sucesso!"
     else
       flash[:alert] = "Não foi criado"
