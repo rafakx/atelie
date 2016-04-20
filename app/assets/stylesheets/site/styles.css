@@ -8,20 +8,20 @@
 }
 
 @font-face {
-  font-family: 'Satisfy';
-  src: url('/assets/satisfy-regular.ttf');
-  src: url('/assets/satisfy-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Raleway';
   src: url('/assets/raleway-regular.ttf');
   src: url('/assets/raleway-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 
+}
+
+body{
+  overflow-x:hidden;
+}
+
+*{
+  font-family: Raleway;
 }
 
 a{
@@ -62,7 +62,7 @@ a:focus{
 }
 
 #menu a{
-  font-size:14px;
+  font-size:15px;
   font-weight: bold;
   text-transform: uppercase;
   color:#5F5F5F;
@@ -108,8 +108,9 @@ a:focus{
 }
 
 .box > .item a{
-  color:#3284a2;
+  color:#3284A2;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .box > .item a:hover{
@@ -117,4 +118,28 @@ a:focus{
   opacity: 0.5;
   -webkit-transition: 0.35s; 
   transition: 0.35s;
+}
+
+footer .row{
+  background-color:#55BBBB;
+}
+
+footer .container{
+  padding:10px 0 0 0;
+}
+
+footer p{
+  color:#FFF;
+}
+
+footer a{
+  color:#d0eeed;
+}
+
+footer a:hover{
+  color:#FFF;
+}
+
+.pagination a{
+  color:#3284A2;
 }
