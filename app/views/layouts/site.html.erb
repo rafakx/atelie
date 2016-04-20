@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Atelie</title>
+  <%= stylesheet_link_tag    'site', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'site', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <nav class="navbar navbar-static-top" style="border-bottom: 1px solid #CCC;">
+        <div class="container">
+          <div class="navbar-header navbar-right" style="padding-right:15px;">
+            <ul class="nav navbar-nav" style="font-size:18px;">
+              <li>
+                <a href="http://www.facebook.com/ilda.bet" target="_blank">
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:ildabet@hotmail.com">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <%= link_to '/inicio' do %>
+      <div id="logo">
+        <h1>
+          Meus Mimos
+        </h1>
+        <h2>
+          Produtos Artesanais
+        </h2>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="menu" class="container text-center">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2">
+      <%= link_to 'Início', 'inicio' %>
+    </div>
+    <div class="col-lg-2">
+      <%= link_to 'Produtos', 'produtos' %>
+    </div>
+    <div class="col-lg-2">
+      <%= link_to 'A artesã', 'sobre' %>
+    </div>
+    <div class="col-lg-2">
+      <%= link_to 'Contato', 'contato' %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <%= yield %>
+
+  <footer>
+    <div class="row">
+      <div class="container">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="container"></div>
+    </div>
+  </footer>
+</body>
+</html>

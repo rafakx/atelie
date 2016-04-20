@@ -31,6 +31,7 @@ gem 'kaminari', '~> 0.16.3'
 # image upload
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

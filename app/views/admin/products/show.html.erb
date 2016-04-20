@@ -1,11 +1,53 @@
-<h1>Admin::Products#show</h1>
-<p><%= @product.name %></p>
-<p><%= @product.description %></p>
-<p><%= status_converter(@product.publish, truthy: "Ativo", falsey: "Inativo") %></p>
-<p><%= time_ago_in_words(@product.created_at) %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Produto Cadastrado
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome</label><br />
+              <%= @product.name %> 
+            </div>
+            <div class="form-group">
+              <label>Criação</label><br />
+              <p><%= time_ago_in_words(@product.created_at) %> atrás</p>
+            </div>
+            <div class="form-group">
+              <label>Publicação</label><br /> 
+              <p><%= status_converter(@product.publish, truthy: "Ativo", falsey: "Inativo") %></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Descrição</label><br />
+              <%= @product.description %> 
+            </div>
+            <div class="form-group">
+              <label>Categorias</label><br /> 
+              <% @product.categories.each do |cat| %>
+                <div class="disabled btn btn-default btn-xs"> <%= cat.name %></div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Imagens</label><br />
+            </div>
+            <div id="image_preview" class="row image_preview">
+              <% @product.pictures.each do |pic| %>
+                <%= image_tag(pic.image, class: 'img-thumbnail') %>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <% @product.pictures.each do |pic| %>
-    <%= image_tag(pic.image) %>
-  <% end %>
-</p>
+        <%= link_to :back do %>
+          <button type="button" class="btn btn-primary btn-md pull-right">Voltar</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

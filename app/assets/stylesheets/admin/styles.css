@@ -947,9 +947,6 @@ h1.page-header {
 	float:left;
 }
 
-
-
-
 .widget-left-button {
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
@@ -966,3 +963,9 @@ h1.page-header {
 	}
 }
 
+.image_preview img{
+	width:200px;
+	height:200px;
+	float:left;
+	margin:0 15px 10px 15px;
+}

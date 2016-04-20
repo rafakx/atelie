@@ -15,9 +15,9 @@ administrator = Administrator.create(
   password: "12345"
 )
 
-30.times do
+16.times do
   product = Product.create(
-    name: Faker::Lorem.word,
+    name: Faker::Lorem.sentence(3),
     description: Faker::Lorem.paragraph,
     publish: true,
     administrator: administrator

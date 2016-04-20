@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
   
-  root to: 'dashboard#index'
 
+
+  get '/inicio' => 'site/home#index'
+  get '/produtos' => 'site/products#index'
+  get '/sobre' => 'site/about#index'
+  get '/contato' => 'site/contact#index'
   get '/login' => 'admin/sessions#new'
   get '/logout' => 'admin/sessions#destroy'
+
+  namespace :site do
+    resources :home, only: [:index] 
+    resources :about, only: [:index] 
+    resources :contact, only: [:index] 
+    resources :products, only: [:index, :show] 
+  end
 
   namespace :admin do
     resources :dashboard, only: [:index]
@@ -15,9 +26,7 @@ Rails.application.routes.draw do
     resources :administrators, only: [:index, :edit, :update]
   end
 
-
-  resources :products, only: [:index, :show]
-
+  root to: 'site/home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,14 @@
+  <div class="container">
+    <div class="box">
+      <% @products.each do |product| %>
+        <div class="item">
+          <%= link_to do %>
+            <%=  image_tag(product.pictures.first.image) %>
+            <div>
+              <%= product.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
