@@ -1,2 +1,20 @@
-<h1>Site::Products#show</h1>
-<p>Find me in app/views/site/products/show.html.erb</p>
+<section id="product">
+  <div class="container">
+    <%= image_tag(@product.pictures.first.image, class: 'col-lg-6')  %>
+    <div class="col-lg-6">
+      <h3>
+        <%= @product.name %>
+      </h3>
+      <p>
+        <%= @product.description %>
+      </p>
+      <div class="row">
+        <% @product.pictures.drop(1).each do |pic, index| %>
+            <div class="col-lg-4">
+              <%= image_tag(pic.image, class: 'img-thumbnail') %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

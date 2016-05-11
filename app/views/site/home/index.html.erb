@@ -2,16 +2,13 @@
     <div class="box">
       <% @products.each do |product| %>
         <div class="item">
-          <%= link_to do %>
-            <%=  image_tag(product.pictures.first.image) %>
+          <%= link_to site_product_path(product) do %>
+            <%= image_tag(product.pictures.first.image)  %>
             <div>
               <%= product.name %>
             </div>
           <% end %>
         </div>
       <% end %>
-    </div>
-    <div class="row text-center">
-      <%= paginate @products %>
     </div>
   </div>

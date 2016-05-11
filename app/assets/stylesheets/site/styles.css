@@ -1,5 +1,5 @@
 
-@font-face {
+/*@font-face {
   font-family: 'Satisfy';
   src: url('/assets/satisfy-regular.ttf');
   src: url('/assets/satisfy-regular.ttf') format('truetype');
@@ -13,8 +13,11 @@
   src: url('/assets/raleway-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-
 }
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 body{
   overflow-x:hidden;
@@ -46,7 +49,8 @@ a:focus{
 #logo h1{
   font-family: Satisfy;
   color: #55BBBB;
-  font-size:85px;
+  /*font-size:85px;*/
+  font-size:100px;
 }
 
 #logo h2{
@@ -142,4 +146,12 @@ footer a:hover{
 
 .pagination a{
   color:#3284A2;
+}
+
+#product .row{
+  padding-top: 100px;
+}
+
+#product{
+  margin-bottom: 40px;
 }
