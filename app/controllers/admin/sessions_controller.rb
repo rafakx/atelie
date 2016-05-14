@@ -2,8 +2,11 @@ class Admin::SessionsController < Admin::ApplicationController
   before_action :authorize, except: [:new, :create]
 
   def new
-    render :layout => "login"
-    redirect_to admin_dashboard_index_path if current_administrator
+    if current_administrator
+      redirect_to admin_dashboard_index_path
+    else
+      render :layout => "login"
+    end
   end
 
   def create

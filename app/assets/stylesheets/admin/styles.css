@@ -1,13 +1,6 @@
-/*
-Lumino Admin Bootstrap Template
-Version 1.0
-*/
-
-
-/*Global Styles*/
-
 body {
-	background: #f1f4f7;
+	/*background: #f1f4f7;*/
+	background-color:#d9e0e7;
 	padding-top: 50px;
 	color: #5f6468;
 }
@@ -46,7 +39,7 @@ h3, h4 {
 	color: #9fadbb;
 }
 
-.color-gray { color: #5f6468; }
+/*.color-gray { color: #5f6468; }
 .color-blue { color: #30a5ff; }
 .color-teal { color: #1ebfae; }
 .color-orange { color: #ffb53e; }
@@ -54,7 +47,7 @@ h3, h4 {
 
 .bg-primary .glyphicon-remove { color: #5f6468;}
 .bg-primary .glyphicon-remove:hover { color: #ef4040;}
-
+*/
 .no-padding {
 	padding: 0; margin: 0;
 }
@@ -570,7 +563,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: #30a5ff;
-}*/
+}
 
 .sidebar ul.nav ul,
 .sidebar ul.nav ul li {
@@ -969,3 +962,4 @@ h1.page-header {
 	float:left;
 	margin:0 15px 10px 15px;
 }
+
