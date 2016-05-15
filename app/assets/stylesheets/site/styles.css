@@ -126,6 +126,7 @@ a:focus{
 
 footer .row{
   background-color:#55BBBB;
+  margin-top: 40px;
 }
 
 footer .container{
@@ -152,6 +153,37 @@ footer a:hover{
   padding-top: 100px;
 }
 
-#product{
-  margin-bottom: 40px;
+.btn-principal{
+  border-radius: 2px;
+  color: #ffffff;
+  background: #55BBBB;
+  padding: 9px 18px 10px 20px;
+  text-decoration: none;
+  border:0;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Raleway;
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.5);
+  /*margin-right: 15px;*/
+  text-transform: uppercase;
+  text-shadow: 0;
+  margin-right:15px;
+}
+
+.btn-principal:hover{
+  -webkit-transition: 0.35s; 
+  transition: 0.35s;
+}
+
+.panel-body .btn{
+  font-weight: bold;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+
 }

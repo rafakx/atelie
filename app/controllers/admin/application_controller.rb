@@ -11,7 +11,7 @@ class Admin::ApplicationController < ActionController::Base
 
   def authorize
     unless current_administrator
-      redirect_to '/login', alert: 'Please login to view admin pages'
+      redirect_to '/login', alert: 'Faça o login para entrar'
     end
   end
 end

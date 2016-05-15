@@ -7,14 +7,51 @@
       </h3>
       <p>
         <%= @product.description %>
+        <br />
+        <br />
+        <br />
+        <button class="btn-principal pull-right" data-toggle="modal" data-target="#gallery">
+          MAIS FOTOS
+        </button>
       </p>
-      <div class="row">
-        <% @product.pictures.drop(1).each do |pic, index| %>
-            <div class="col-lg-4">
-              <%= image_tag(pic.image, class: 'img-thumbnail') %>
-            </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="gallery" tabindex="-1" role="dialog" aria-labelledby="gallery">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="gallery"><%= @product.name %></h4>
+      </div>
+      <div class="modal-body">
+        <div id="product-carousel" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner" role="listbox">
+            <% @product.pictures.each_with_index do |pic, index| %>
+              <% if index == 0 %>
+                <div class="item active">
+              <% else %>
+                <div class="item">
+              <% end %>
+                <%= image_tag(pic.image, alt: @product.name, style: "margin:auto;") %>
+              </div>
+            <% end %>
+          </div>
+
+          <a class="left carousel-control" href="#product-carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="right carousel-control" href="#product-carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-principal" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

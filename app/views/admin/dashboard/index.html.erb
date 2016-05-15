@@ -53,8 +53,12 @@
         <tbody>
           <% @products.last(5).each do |product| %>
             <tr>
-              <td><strong><%= product.name %></strong></td>
-              <td>Adicionado à <%= time_ago_in_words(product.created_at) %> 
+              <td class="col-lg-8">
+                <strong><%= product.name %></strong>
+                <br />
+                Adicionado à <%= time_ago_in_words(product.created_at) %> 
+              </td>
+              <td class="col-lg-4">
                 <div class="columns btn-group pull-right">
                   <%= link_to edit_admin_product_path(product) do %>
                     <button class="btn btn-default" type="button" name="toggle" title="Toggle">

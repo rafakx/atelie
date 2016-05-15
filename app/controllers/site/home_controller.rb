@@ -1,5 +1,5 @@
 class Site::HomeController < Site::ApplicationController
   def index
-    @products = Product.first(12)
+    @products = Product.order(id: :desc).first(8)
   end
 end

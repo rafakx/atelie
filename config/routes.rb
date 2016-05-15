@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/sobre' => 'site/about#index'
   get '/contato' => 'site/contact#index'
   get '/login' => 'admin/sessions#new'
+  get '/admin' => 'admin/sessions#new'
   get '/logout' => 'admin/sessions#destroy'
 
   namespace :site do

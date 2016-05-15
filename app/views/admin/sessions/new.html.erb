@@ -9,14 +9,14 @@
       <% end %>
 
       <div class="login-panel panel-blue panel-primary">
-        <div class="panel-heading" style="border-bottom: 1px solid #CCC;"><center>Login</center></div>
+        <div class="panel-heading">Gestão de <span>conteúdo</span></div>
         <br />
         <div class="panel-body">
           <div class="col-lg-7">
             <%= form_tag admin_sessions_path do %>
               <fieldset>
                 <div class="form-group">
-                  <label>Login </label>
+                  <label>Login ou Email de acesso</label>
                   <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "Login" %>
                 </div>
                 <div class="form-group">
