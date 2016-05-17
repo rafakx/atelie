@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
-
 
   get '/inicio' => 'site/home#index'
   get '/produtos' => 'site/products#index'
   get '/sobre' => 'site/about#index'
-  get '/contato' => 'site/contact#index'
+  get '/contato' => 'site/messages#new'
+
   get '/login' => 'admin/sessions#new'
   get '/admin' => 'admin/sessions#new'
   get '/logout' => 'admin/sessions#destroy'
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
   namespace :site do
     resources :home, only: [:index] 
     resources :about, only: [:index] 
-    resources :contact, only: [:index] 
+    resources :messages, only: [:new, :create] 
     resources :products, only: [:index, :show] 
   end
 

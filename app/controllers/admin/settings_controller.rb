@@ -1,7 +1,7 @@
 class Admin::SettingsController < Admin::ApplicationController
   def new
     if Setting.any?
-      redirect_to edit_admin_setting_path(Setting.first)
+      redirect_to edit_admin_setting_path(Setting.order(:id).last)
     else
       @setting = Setting.new
     end

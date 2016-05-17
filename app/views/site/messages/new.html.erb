@@ -1,0 +1,53 @@
+<div class="container">
+
+  <% if flash[:notice] %>
+    <div class="alert bg-success" role="alert">
+      <%= flash[:notice] %>
+      <% if !@visitor.valid? %>
+        <% @visitor.errors.messages.values.each do |errors| %>
+          <% errors.each do |msg| %>
+            <ul>  
+              <li><%= msg %></li>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="col-lg-6">
+  <%= form_for [:site, @message] do |f| %>
+    <%= fields_for @visitor, @message.visitor do |v| %>
+
+      <div class="form-group">
+        <%= v.label :firstname, 'Primeiro Nome' %> 
+        <%= v.text_field :firstname, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= v.label :lastname, 'Segundo Nome' %><br /> 
+        <%= v.text_field :lastname, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= v.label :email, 'Email' %><br /> 
+        <%= v.text_field :email, class: "form-control" %>
+      </div>
+
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :content, 'Mensagem' %><br /> 
+      <%= f.text_area :content, class: "form-control", rows: "5" %>
+    </div>
+    <br />
+    <div class="form-group">
+      <%= f.submit "Enviar", class: "btn btn-principal pull-right" %>
+    </div>
+
+  <% end %>
+  </div>
+  <div class="col-lg-6">
+    
+  </div>
+</div>
