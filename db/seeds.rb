@@ -55,8 +55,8 @@ administrator = Administrator.create(
   )
 
   visitor = Visitor.create(
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
+    name: Faker::Name.name,
+    phone: Faker::PhoneNumber.cell_phone,
     email: Faker::Internet.safe_email
   )
 

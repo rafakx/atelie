@@ -5,7 +5,8 @@
         Contato Recebido
       </div>
       <div class="panel-body">
-        <p><strong>Nome: </strong> <%= @message.visitor.fullname %></p>
+        <p><strong>Nome: </strong> <%= @message.visitor.name %></p>
+        <p><strong>Telefone: </strong> <%= @message.visitor.phone %></p>
         <p><strong>Enviado: </strong>  <%= time_ago_in_words(@message.created_at) %></p>
         <p><%= @message.content %></p>
         <%= link_to :back do %>

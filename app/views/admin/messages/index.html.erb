@@ -16,7 +16,7 @@
             <% @messages.each do |message| %>
                 <tr>
                   <td>
-                    <strong><%= message.visitor.fullname %></strong>
+                    <strong><%= message.visitor.name %></strong>
                     <p><%= message.content.first(100) %> ... </p>
                   </td>
                   <td><%= time_ago_in_words(message.created_at) %></td>

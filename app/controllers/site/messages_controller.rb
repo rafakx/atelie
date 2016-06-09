@@ -21,10 +21,10 @@ class Site::MessagesController < Site::ApplicationController
 
 
   def visitor_params
-    params.require(:visitor).permit(:id, :firstname, :lastname, :email)
+    params.require(:visitor).permit(:id, :name, :phone, :email)
   end
 
   def message_params
-    params.require(:message).permit(:id, :firstname, :lastname, :email, :content)
+    params.require(:message).permit(:id, :content)
   end
 end

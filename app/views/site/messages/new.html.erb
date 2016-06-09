@@ -20,17 +20,17 @@
     <%= fields_for @visitor, @message.visitor do |v| %>
 
       <div class="form-group">
-        <%= v.label :firstname, 'Primeiro Nome' %> 
-        <%= v.text_field :firstname, class: "form-control" %>
+        <%= v.label :name, 'Nome' %> 
+        <%= v.text_field :name, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= v.label :lastname, 'Segundo Nome' %><br /> 
-        <%= v.text_field :lastname, class: "form-control" %>
+        <%= v.label :phone, 'Telefone' %> <small>Somente números </small>
+        <%= v.text_field :phone, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= v.label :email, 'Email' %><br /> 
+        <%= v.label :email, 'Email' %>
         <%= v.text_field :email, class: "form-control" %>
       </div>
 
@@ -48,6 +48,18 @@
   <% end %>
   </div>
   <div class="col-lg-6">
-    
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-2"><strong>Email:</strong></div>
+      <div class="col-lg-8">ildabet@hotmail.com</div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-2"><strong>Social:</strong></div>
+      <div class="col-lg-8">                    
+        <a href="http://www.facebook.com/ilda.bet" target="_blank">
+          <i class="fa fa-facebook-official" aria-hidden="true" style="font-size: 30px;"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
