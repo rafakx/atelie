@@ -36,6 +36,11 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :production do
+  # Database for Active Record
+  gem 'pg'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

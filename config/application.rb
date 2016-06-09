@@ -31,7 +31,7 @@ module Atelie
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.web_console.whitelisted_ips = '10.0.2.2'
+    # config.web_console.whitelisted_ips = '10.0.2.2'
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
