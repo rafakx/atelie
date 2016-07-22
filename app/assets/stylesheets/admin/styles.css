@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto:200,400,500,700);
 
 /*
 @import url(https://fonts.googleapis.com/css?family=Satisfy);
@@ -8,10 +9,11 @@
 
 body {
 	/*background: #f1f4f7;*/
-	background-color:#d9e0e7;
+	/*background-color:#d9e0e7;*/
+	background: #EBEEF3;
 	padding-top: 50px;
 	color: #5f6468;
-	font-family: PT Sans;
+	font-family: 'PT Sans', sans-serif;
 	/*font-family: Raleway;*/
 	/*font-family: Open Sans;*/
 }
@@ -104,6 +106,14 @@ h3, h4 {
 
 /*Buttons*/
 
+.btn{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 13px;
+}
+
 a.btn:hover,
 button:hover {
 	opacity: 0.8;
@@ -114,6 +124,40 @@ button:active {
 	box-shadow: inset 0px 0px 500px rgba(0,0,0,.1);
 	opacity: 1;
 }
+
+.btn-link,
+.btn-link:focus,
+.btn-link:active,
+.btn-link.active,
+.open > .dropdown-toggle.btn-link,
+.btn-link.disabled,
+.btn-link[disabled],
+fieldset[disabled] .btn-link,
+.btn-link.disabled:hover,
+.btn-link[disabled]:hover,
+fieldset[disabled] .btn-link:hover,
+.btn-link.disabled:focus,
+.btn-link[disabled]:focus,
+fieldset[disabled] .btn-link:focus,
+.btn-link.disabled:active,
+.btn-link[disabled]:active,
+fieldset[disabled] .btn-link:active,
+.btn-link.disabled.active,
+.btn-link[disabled].active,
+fieldset[disabled] .btn-link.active {
+	background-color: #FFF;
+	border-color: #FFF;
+	color: rgba(0,0,0,0.54);
+	box-shadow: none;
+	border-radius: 2px;
+}
+
+.btn-link:hover{
+	background-color: rgba(0,0,0,0.10);
+	color: rgba(0,0,0,0.54);
+	text-decoration: none;
+}
+
 
 .btn-default,
 .btn-default:hover,
@@ -136,9 +180,13 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-	background-color: #e9ecf2;
+/*	background-color: #e9ecf2;
 	border-color: #e9ecf2;
-	color: #1b3548;
+	color: #1b3548;*/
+	background-color: #666;
+	border-color: #666;
+	color: #fff;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.20);
 }
 
 .btn-primary,
@@ -162,8 +210,10 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-	background-color: #30a5ff;
+	/*background-color: #30a5ff;*/
 	border-color: #30a5ff;
+	/*Novo*/
+	background-color: rgb(3,155,229);
 }
 
 .btn-success,
@@ -295,6 +345,7 @@ a.bg-danger:hover {
 
 .panel {
 	border: 0;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
 }
 
 .panel-heading {
@@ -319,6 +370,7 @@ a.bg-danger:hover {
 .panel-widget {
 	padding: 0;
 	position: relative;
+	box-shadow: none;
 }
 
 .panel-widget .panel-footer {
@@ -429,7 +481,8 @@ a.bg-danger:hover {
 .panel-blue .widget-left { background: #30a5ff; color: #fff; }
 .panel-teal .widget-left { background: #1ebfae; color: #fff; }
 .panel-orange .widget-left { background: #ffb53e; color: #fff; }
-.panel-red .widget-left { background: #f9243f; color: #fff; }
+.panel-red .widget-left { background: #D451A3; color: #fff; }
+/*.panel-red .widget-left { background: #f9243f; color: #fff; }*/
 
 .panel-widget {
 	background: #fff;
@@ -494,6 +547,12 @@ a.bg-danger:hover {
 
 .navbar {
 	border: 0;
+	/* Novo */
+	background: #0288d1;
+	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14),
+							0 3px 3px -2px rgba(0,0,0,0.12),
+							0 1px 8px 0 rgba(0,0,0,0.2);
+	/* Até aqui */
 }
 
 .navbar input {
@@ -512,7 +571,7 @@ a.bg-danger:hover {
 
 .user-menu {
 	display: inline-block;
-	margin-top: 14px;
+	margin-top: 16px;
 	margin-right: 10px;
 	float: right;
 	list-style: none;
@@ -520,7 +579,8 @@ a.bg-danger:hover {
 }
 
 .user-menu a {
-	color: #fff;
+	font-weight: bold;
+	color: rgba(255,255,255,.7)
 }
 
 .user-menu a:hover, .user-menu a:focus {
@@ -536,10 +596,21 @@ a.bg-danger:hover {
 	display: none;
 }
 
-.sidebar form {
+
+/*.sidebar form {
 	padding: 20px 15px 5px 15px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 20px;
+}*/
+
+.sidebar form {
+	padding: 18px 15px 1px 15px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+	background: #fafafa;	
+	color:rgba(0,0,0,0.54);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -556,7 +627,8 @@ a.bg-danger:hover {
 		overflow-x: hidden;
 		overflow-y: auto; 
 		background-color: #fff;
-		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
+		box-shadow:  0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+		/*box-shadow: 1px 0px 10px rgba(0, 0, 0, .15);*/
 	}
 	.navbar-header {
 		width: 100%;
@@ -572,8 +644,9 @@ a.bg-danger:hover {
 .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active,
 .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover,
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
-	color: #fff;
-	background-color: #30a5ff;
+/*	color: #fff;
+	background-color: #039be5;*/
+	color: #039be5;*/
 }
 
 .sidebar ul.nav ul,
@@ -630,9 +703,17 @@ a.bg-danger:hover {
 /*Breadcrumbs*/
 
 .breadcrumb {
-	border-radius: 0;
-	padding: 10px 15px;
-	background: #e9ecf2;
+	border-radius: 0;	
+
+	/*Novo*/
+	/*background: #e9ecf2;*/
+	/*padding: 10px 15px;*/
+	padding: 12px 20px;
+	background: #039be5;
+	color: #FFF;
+	font-size: 20px;
+	/*Fim do novo*/
+
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	margin: 0 ;
 }
@@ -875,7 +956,7 @@ h1.page-header {
 
 .chat .panel-body {
 	overflow-y: scroll;
-	height: 300px;
+	height: 316px;
 }
 
 .chat-body small {
@@ -945,11 +1026,30 @@ h1.page-header {
 	margin:7px;
 	float:left;
 }
-
+/*
 .menu span{
 	font-size: 20px;
 	float:left;
 }
+
+.menu a{
+	color:rgba(0,0,0,0.54);
+	font-weight: 600;
+	letter-spacing: 0;
+}*/
+
+.menu span{
+	font-size: 14px;
+	padding:3px;
+	float:left;
+}
+
+.menu a{
+	color:rgba(0,0,0,0.54);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+}
+
 
 .widget-left-button {
 	border-top-left-radius: 0px;
@@ -1000,4 +1100,32 @@ h1.page-header {
 
 .login-panel .panel-heading span {
 	color: #fff;
+}
+
+.logo img{
+	padding:12px;
+	padding-left:0;
+	float: left;
+}
+
+.logo h1{
+	display: inline-block;
+	margin-top: 17px;
+	margin-right: 10px;
+	font-size: 18px;
+	float: left;
+	color: #FFF;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: .3px;
+}
+
+.text-divider{
+	padding:15px 0 15px 16px;
+	text-transform: uppercase;
+	color:rgba(0,0,0,0.38);
+	font-size: 13px;
+	letter-spacing: .5px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 200;
 }

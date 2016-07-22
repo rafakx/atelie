@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="panel panel-blue panel-widget ">
+    <div class="panel panel-orange panel-widget ">
       <div class="row no-padding">
         <div class="col-sm-3 col-lg-5 widget-left">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="panel panel-orange panel-widget">
+    <div class="panel panel-teal panel-widget">
       <div class="row no-padding">
         <div class="col-sm-3 col-lg-5 widget-left">
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="panel panel-teal panel-widget">
+    <div class="panel panel-red panel-widget">
       <div class="row no-padding">
         <div class="col-sm-3 col-lg-5 widget-left">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -83,7 +83,7 @@
           <button type="button" class="btn btn-primary">Novo</button>
         <% end %>
         <%= link_to admin_products_path do %>
-          <button type="button" class="btn btn-default">Ver Todos</button>
+          <button type="button" class="btn btn-link">Ver Todos</button>
         <% end %>
       </div>
     </div>
@@ -92,7 +92,8 @@
   <div class="col-md-6">
     <div class="panel panel-primary chat">
       <div class="panel-heading">
-        <span class="glyphicon glyphicon-envelope panel-heading-icon" aria-hidden="true"></span>Ultimas Mensagens</div>
+        <span class="glyphicon glyphicon-envelope panel-heading-icon" aria-hidden="true"></span>Ultimas Mensagens
+      </div>
     
       <div class="panel-body">
         <ul>
@@ -109,12 +110,12 @@
           </li>
           <% end %>
         </ul>
-      </div>                <!-- Form actions -->
-      <div class="panel-footer col-md-12 widget-right contact-right">
-        <%= link_to admin_products_path do %>
-          <button type="button" class="btn btn-default btn-md pull-right">Ver Todos</button>
-        <% end %>
       </div>
+      <div class="panel-footer" style="height: 53px;">
+        <%= link_to admin_products_path do %>
+          <button type="button" class="btn btn-link btn-md pull-right">Ver Todos</button>
+        <% end %>
+      </div>                <!-- Form actions -->
     </div>
   </div>
 </div>

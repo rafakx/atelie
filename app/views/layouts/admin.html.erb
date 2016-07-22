@@ -12,7 +12,7 @@
 
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
@@ -21,11 +21,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><span>Gestão de </span>Conteúdo</a>
+        <!-- <a class="navbar-brand" href="#"><span>Gestão de </span>Conteúdo</a> -->
+        <!-- <span class="glyphicon glyphicon-bookmark logo" aria-hidden="true"></span>&nbsp; -->
+        <div class="logo">
+          <%= image_tag 'admin/logo.gif' %>
+          <h1>Limber</h1>
+        </div>
         <ul class="user-menu">
           <li class="dropdown pull-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
               <%= @administrator.fullname %> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -76,6 +81,9 @@
           <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
           <%= t('menu.dashboard') %>
         <% end %> 
+      </li>
+      <li class="text-divider">
+        opções
       </li>
       <li <%= is_active(controller.controller_name, 'products') %>>
         <%= link_to admin_products_path do %>&nbsp;
